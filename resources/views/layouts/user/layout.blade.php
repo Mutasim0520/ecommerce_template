@@ -130,7 +130,8 @@
     <div class="container">
         <div class="col-md-3 footer-left">
 
-            <h2><a href="index.html"><img src="/images/logo/{{$obj->company_logo}}" alt=" " /></a></h2>
+            <h2><a href="/"><img src="/images/logo/{{$obj->company_logo}}" alt=" " /></a>
+            </h2>
             <p>{{$obj->company_address}}</p>
             <p>{{$obj->company_email}}</p>
             <p>{{$obj->company_contact}}</p>

@@ -75,7 +75,7 @@
                                 <div class="info-content simpleCart_shelfItem">
                                     <h4>{{$category->catagory_name}}</h4>
                                     <span class="separator"></span>
-                                    <a class="item_add hvr-outline-out button2" href="/category/{{$category->catagory_name}}">View All </a>
+                                    <a class="item_add hvr-outline-out button2" href="/category/{{$category->id}}">View All </a>
                                 </div>
                             </div>
                         </div>

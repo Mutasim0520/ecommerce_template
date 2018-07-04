@@ -133,6 +133,8 @@ Route::get('/','IndexController@showIndex');
 Route::get('/cart','IndexController@showCart')->name('user.cart');
 Route::get('/productDetail/{id}','IndexController@showProductDetail');
 Route::get('/item/{category}','IndexController@itemWiseProduct');
+Route::get('/category/{id}','IndexController@showCategoryWiseProduct');
+
 Route::get('/subCatagoryWiseProduct/{sub_catagory}','IndexController@SubCatagoryWiseProduct');
 
 Route::get('/account/settings','UserController@showAccountSettingsPage')->name('user.account.settings');

@@ -3,10 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Photo as Photo;
 use App\Product as Products;
-use App\Size as Size;
-use App\Color as Color;
 use App\Slide as Slide;
 use App\Catagorie as Catagory;
 use Storage;
@@ -151,6 +148,18 @@ class IndexController extends Controller
             }
         }
         return view('User.subCatagoryProducts' , ['Shipping_cost'=>$shipping_cost,'Product' => $Product , 'Category'=>$sub_category ]);
+    }
+
+    public function showCategoryWiseProduct(Request $request){
+        $category = Catagory::find($request->id);
+        $Product = Products::with('Photo')->where(['catagorie_id' => $category->id],['quantity','>',0])->paginate(40);
+        $info = explode(PHP_EOL,Storage::disk('public')->get('company.txt'));
+        foreach ($info as $item){
+            if(preg_match('/shipping_cost/',$item)){
+                $shipping_cost = trim(preg_replace('/shipping_cost=/','',$item));
+            }
+        }
+        return view('User.catagoryProducts' , ['Shipping_cost'=>$shipping_cost,'Product' => $Product , 'Category'=>$category ]);
     }
 
     public function storeLink(Request $request){
